@@ -7,7 +7,7 @@ from email.utils import parseaddr, formataddr
 import smtplib
 import datetime
 from loguru import logger
-
+from time import sleep
 framework = """
 <!DOCTYPE HTML>
 <html>
@@ -135,6 +135,7 @@ def render_email(papers:list[ArxivPaper]):
         else:
             affiliations = 'Unknown Affiliation'
         parts.append(get_block_html(p.title, authors,rate,p.arxiv_id ,p.tldr, p.pdf_url, p.code_url, affiliations))
+        sleep(10)
 
     content = '<br>' + '</br><br>'.join(parts) + '</br>'
     return framework.replace('__CONTENT__', content)
