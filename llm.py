@@ -1,6 +1,7 @@
 from llama_cpp import Llama
 from openai import OpenAI
 from loguru import logger
+from time import sleep
 
 GLOBAL_LLM = None
 
